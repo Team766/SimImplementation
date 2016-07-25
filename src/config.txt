@@ -1,0 +1,9 @@
+leftMotor,0
+rightMotor,1
+leftEncoder,2,3
+rightEncoder,4,5
+driveShifter,6
+gyro,7
+leftJoystick,8
+rightJoystick,9
+boxJoystick,10
