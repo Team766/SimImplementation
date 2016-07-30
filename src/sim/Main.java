@@ -1,5 +1,7 @@
 package sim;
 
+import org.opencv.core.Core;
+
 import interfaces.ConfigFileReader;
 import interfaces.MyRobot;
 import interfaces.RobotProvider;
@@ -16,6 +18,8 @@ public class Main {
 	
 	//Pass in robot name as argument
 	public static void main(String[] args){
+		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		
 		if(args.length < 1){
 			System.out.println("You must pass in the robot name!");
 			return;

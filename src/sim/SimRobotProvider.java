@@ -1,5 +1,6 @@
 package sim;
 
+import interfaces.CameraReader;
 import interfaces.EncoderReader;
 import interfaces.GyroReader;
 import interfaces.JoystickReader;
@@ -35,6 +36,13 @@ public class SimRobotProvider extends RobotProvider{
 		if(gyros[index] == null)
 			gyros[index] = new Gyro(index);
 		return gyros[index];
+	}
+	
+	@Override
+	public CameraReader getCamera(String id, String value) {
+		if(!cams.containsKey(id))
+			cams.put(id, new Camera(id));
+		return cams.get(id);
 	}
 
 	@Override
