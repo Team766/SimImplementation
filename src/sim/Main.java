@@ -8,7 +8,7 @@ import interfaces.RobotProvider;
 
 public class Main {
 	
-	private static GameState state_ = GameState.Disabled;
+	private static GameState state_ = GameState.Auton;
 	private static boolean init = true;
 
 	private enum GameState{
@@ -29,11 +29,12 @@ public class Main {
 		RobotProvider.instance = new SimRobotProvider();
 		
 		System.out.println("========== Loading Robot Code ==========");
-		MyRobot robot;
+		MyRobot robot = null;
 		try {
-			robot = (MyRobot)Class.forName(args[0]).newInstance();
-		} catch (Throwable t) {
+			robot = (MyRobot)Class.forName(args[0]).asSubclass(MyRobot.class).newInstance();
+		} catch (Exception e) {
 			System.out.println("Robot couldn't be instantiated\t :(");
+			e.printStackTrace();
 			return;
 		}
 		
@@ -70,7 +71,12 @@ public class Main {
 				default:
 					System.err.println("GAME STATE NOT RECOGNIZED:\t" + state_);
 					break;
+			}
 			
+			try {
+				Thread.sleep(15);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
 		}
 	}

@@ -44,6 +44,7 @@ public class VRConnector implements Runnable {
 			try {
 				instance_ = new VRConnector();
 			} catch (IOException e) {
+				e.printStackTrace();
 				System.out.println("Failed to start Simmulator");
 			}
 		return instance_;
@@ -107,7 +108,7 @@ public class VRConnector implements Runnable {
 		while (true) {
 			try {
 				VRConnector.getInstance().process();
-				Thread.sleep(33);
+				Thread.sleep(10);
 			} catch (Exception e) {
 			}
 		}

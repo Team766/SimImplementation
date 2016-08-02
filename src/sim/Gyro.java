@@ -20,7 +20,7 @@ public class Gyro implements GyroReader{
 
 	@Override
 	public double getAngle() {
-		return 0;
+		return VRConnector.getInstance().getFeedback(port);
 	}
 
 	@Override

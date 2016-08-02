@@ -13,12 +13,12 @@ public class Encoder implements EncoderReader{
 	
 	@Override
 	public int getRaw() {
-		return 0;
+		return VRConnector.getInstance().getFeedback(port1);
 	}
 
 	@Override
 	public int get() {
-		return 0;
+		return VRConnector.getInstance().getFeedback(port1);
 	}
 
 	@Override

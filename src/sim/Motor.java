@@ -21,6 +21,7 @@ public class Motor implements SpeedController{
 
 	@Override
 	public void set(double speed) {
+		VRConnector.getInstance().putCommandFloat(port, (float)speed);
 	}
 
 	@Override
