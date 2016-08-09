@@ -5,6 +5,7 @@ import interfaces.GyroReader;
 public class Gyro implements GyroReader{
 
 	private int port;
+	private double offset = 0;
 	
 	public Gyro(int port){
 		this.port = port;
@@ -16,11 +17,13 @@ public class Gyro implements GyroReader{
 
 	@Override
 	public void reset() {
+		offset = VRConnector.getInstance().getFeedback(port);
 	}
 
 	@Override
 	public double getAngle() {
-		return VRConnector.getInstance().getFeedback(port);
+//		System.out.println(VRConnector.getInstance().getFeedback(port) + "\t" + offset);		
+		return VRConnector.getInstance().getFeedback(port) - offset;
 	}
 
 	@Override

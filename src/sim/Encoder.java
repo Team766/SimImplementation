@@ -6,6 +6,8 @@ public class Encoder implements EncoderReader{
 
 	private int port1, port2;
 	
+	private int offset = 0;
+	
 	public Encoder(int port1, int port2){
 		this.port1 = port1;
 		this.port2 = port2;
@@ -13,16 +15,17 @@ public class Encoder implements EncoderReader{
 	
 	@Override
 	public int getRaw() {
-		return -VRConnector.getInstance().getFeedback(port1);
+		return -VRConnector.getInstance().getFeedback(port1) - offset;
 	}
 
 	@Override
 	public int get() {
-		return -VRConnector.getInstance().getFeedback(port1);
+		return -VRConnector.getInstance().getFeedback(port1) - offset;
 	}
 
 	@Override
 	public void reset() {
+		offset = VRConnector.getInstance().getFeedback(port1);
 	}
 
 	@Override

@@ -40,8 +40,15 @@ public class Main {
 		
 		System.out.println("========== Starting up connector ==========");
 		new Thread(VRConnector.getInstance()).start();
+		VRConnector.getInstance().putCommandBool(VRConnector.RESET_SIM, true);		
+
+		System.out.println("Waiting for Simulator to restart...");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e1) {}
 		
 		robot.robotInit();
+		
 		while(true){
 			//Update GameState
 //			if(state_ != VRConnector.getInstance().getFeedback(VRConnector.Game_State))
@@ -72,6 +79,7 @@ public class Main {
 					System.err.println("GAME STATE NOT RECOGNIZED:\t" + state_);
 					break;
 			}
+			init = false;
 			
 			try {
 				Thread.sleep(15);
