@@ -8,6 +8,8 @@ import interfaces.RobotProvider;
 
 public class Main {
 	
+	private static final int WAIT_TIME = 3;	//seconds
+	
 	private static GameState state_ = GameState.Auton;
 	private static boolean init = true;
 
@@ -43,9 +45,12 @@ public class Main {
 		VRConnector.getInstance().putCommandBool(VRConnector.RESET_SIM, true);		
 
 		System.out.println("Waiting for Simulator to restart...");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e1) {}
+		for(int i = WAIT_TIME; i > 0; i--){
+			System.out.println(i + " seconds left...");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e1) {}
+		}
 		
 		robot.robotInit();
 		
