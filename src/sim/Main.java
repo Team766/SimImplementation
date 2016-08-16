@@ -2,6 +2,7 @@ package sim;
 
 import org.opencv.core.Core;
 
+import trajectory.AutoPaths;
 import interfaces.ConfigFileReader;
 import interfaces.MyRobot;
 import interfaces.RobotProvider;
