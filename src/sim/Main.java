@@ -18,7 +18,6 @@ public class Main {
 		Disabled, Teleop, Auton, Test
 	}
 	
-	
 	//Pass in robot name as argument
 	public static void main(String[] args){
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -28,7 +27,7 @@ public class Main {
 			return;
 		}
 		
-		ConfigFileReader.fileName = "config.txt";
+		ConfigFileReader.fileName = "simConfig.txt";
 		RobotProvider.instance = new SimRobotProvider();
 		
 		System.out.println("========== Loading Robot Code ==========");
