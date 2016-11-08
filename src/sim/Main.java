@@ -11,7 +11,7 @@ public class Main {
 	
 	private static final int WAIT_TIME = 3;	//seconds
 	
-	private static GameState state_ = GameState.Auton;
+	private static GameState state_ = GameState.Teleop;
 	private static boolean init = true;
 
 	private enum GameState{
