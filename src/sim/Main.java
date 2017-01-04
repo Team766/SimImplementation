@@ -1,8 +1,9 @@
 package sim;
 
+import lib.ConstantsFileReader;
+
 import org.opencv.core.Core;
 
-import trajectory.AutoPaths;
 import interfaces.ConfigFileReader;
 import interfaces.MyRobot;
 import interfaces.RobotProvider;
@@ -11,7 +12,7 @@ public class Main {
 	
 	private static final int WAIT_TIME = 3;	//seconds
 	
-	private static GameState state_ = GameState.Teleop;
+	private static GameState state_ = GameState.Auton;
 	private static boolean init = true;
 
 	private enum GameState{
@@ -23,11 +24,12 @@ public class Main {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		
 		if(args.length < 1){
-			System.out.println("You must pass in the robot name!");
+			System.out.println("You must pass in the robot's name!");
 			return;
 		}
 		
 		ConfigFileReader.fileName = "simConfig.txt";
+		ConstantsFileReader.fileName = "simConstants.csv";
 		RobotProvider.instance = new SimRobotProvider();
 		
 		System.out.println("========== Loading Robot Code ==========");
