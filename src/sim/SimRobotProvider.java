@@ -1,12 +1,14 @@
 package sim;
 
 import interfaces.CameraReader;
+import interfaces.DigitalInputReader;
 import interfaces.EncoderReader;
 import interfaces.GyroReader;
 import interfaces.JoystickReader;
 import interfaces.RobotProvider;
 import interfaces.SolenoidController;
 import interfaces.SpeedController;
+import interfaces.CameraInterface;
 
 public class SimRobotProvider extends RobotProvider{
 
@@ -51,5 +53,17 @@ public class SimRobotProvider extends RobotProvider{
 			joysticks[index] = new Joystick(index);
 		return joysticks[index];
 	}
+	
+	@Override
+	public CameraInterface getCamServer(){
+		return null;
+	}
 
+	@Override
+	public DigitalInputReader getDigitalInput(int index) {
+		if(digInputs[index] == null)
+			digInputs[index] = new DigitalInput(index);
+		return digInputs[index];
+	}
+	
 }
