@@ -46,6 +46,9 @@ public class Main {
 		new Thread(VRConnector.getInstance()).start();
 		VRConnector.getInstance().putCommandBool(VRConnector.RESET_SIM, true);		
 
+		
+		/*
+		 * RESETING SIMULATOR
 		System.out.println("Waiting for Simulator to restart...");
 		for(int i = WAIT_TIME; i > 0; i--){
 			System.out.println(i + " seconds left...");
@@ -53,6 +56,7 @@ public class Main {
 				Thread.sleep(1000);
 			} catch (InterruptedException e1) {}
 		}
+		*/
 		
 		robot.robotInit();
 		
