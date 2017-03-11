@@ -24,7 +24,7 @@ public class Main {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		
 		if(args.length < 1){
-			System.out.println("You must pass in the robot's name!");
+			System.out.println("You must pass in the robbit's name!");
 			return;
 		}
 		
@@ -32,7 +32,7 @@ public class Main {
 		ConstantsFileReader.fileName = "simConstants.csv";
 		RobotProvider.instance = new SimRobotProvider();
 		
-		System.out.println("========== Loading Robot Code ==========");
+		System.out.println("========= Loading Robbit Code =========");
 		MyRobot robot = null;
 		try {
 			robot = (MyRobot)Class.forName(args[0]).asSubclass(MyRobot.class).newInstance();

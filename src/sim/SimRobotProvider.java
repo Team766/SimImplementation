@@ -8,6 +8,7 @@ import interfaces.JoystickReader;
 import interfaces.RobotProvider;
 import interfaces.SolenoidController;
 import interfaces.SpeedController;
+import interfaces.AnalogInputReader;
 import interfaces.CameraInterface;
 
 public class SimRobotProvider extends RobotProvider{
@@ -64,6 +65,13 @@ public class SimRobotProvider extends RobotProvider{
 		if(digInputs[index] == null)
 			digInputs[index] = new DigitalInput(index);
 		return digInputs[index];
+	}
+	
+	@Override
+	public AnalogInputReader getAnalogInput(int index) {
+		if(angInputs[index] == null)
+			angInputs[index] = new AnalogInput(index);
+		return angInputs[index];
 	}
 	
 }
