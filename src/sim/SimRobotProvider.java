@@ -14,7 +14,7 @@ import interfaces.CameraInterface;
 public class SimRobotProvider extends RobotProvider{
 
 	@Override
-	public SpeedController getMotor(int index) {
+	public SpeedController getMotor(int index, boolean isCAN) {
 		if(motors[index] == null)
 			motors[index] = new Motor(index);
 		return motors[index];
